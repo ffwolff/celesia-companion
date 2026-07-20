@@ -2,34 +2,34 @@
    TOOLBAR
 =========================== */
 
-.toolbar {
+.toolbar{
 
-    position: fixed;
+    position:fixed;
 
-    top: 20px;
+    top:20px;
 
-    right: 20px;
+    right:20px;
 
-    display: flex;
+    display:flex;
 
-    gap: 12px;
+    gap:12px;
 
-    z-index: 999;
+    z-index:999;
 
 }
 
 
-.toolbar button {
+.toolbar button{
 
-    width: 48px;
+    width:48px;
 
-    height: 48px;
+    height:48px;
 
-    border: none;
+    border:none;
 
-    border-radius: 50%;
+    border-radius:50%;
 
-    background: rgba(0,0,0,.35);
+    background:rgba(0,0,0,.35);
 
     color:white;
 
@@ -37,29 +37,27 @@
 
     font-size:24px;
 
-    backdrop-filter:blur(12px);
+    backdrop-filter:blur(10px);
 
     transition:.2s;
 
 }
 
 
-.toolbar button:hover {
+.toolbar button:hover{
 
     transform:scale(1.1);
-
-    background:rgba(0,0,0,.55);
 
 }
 
 
 
 /* ===========================
-   GAME GRID
+   GAME
 =========================== */
 
 
-.game {
+.game{
 
     width:100%;
 
@@ -76,23 +74,24 @@
 
 
 /* ===========================
-   PLAYER PANEL
+   PLAYER
 =========================== */
 
 
-.player {
+.player{
 
-    display:flex;
+    display:grid;
 
-    flex-direction:column;
+    grid-template-rows:
 
-    justify-content:space-evenly;
+        2fr
 
-    align-items:center;
+        1fr
+
+        2fr;
+
 
     color:white;
-
-    padding:clamp(15px,3vw,40px);
 
     overflow:hidden;
 
@@ -101,90 +100,71 @@
 
 
 /* ===========================
-   PLAYER AREAS
+   RESOURCES
 =========================== */
 
 
-.player-top {
-
-    width:100%;
-
-    display:flex;
-
-    justify-content:center;
-
-}
-
-
-
-.player-middle {
-
-    width:100%;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding-inline:clamp(20px,8vw,120px);
-
-}
-
-
-
-.player-bottom {
-
-    width:100%;
-
-    display:flex;
-
-    justify-content:center;
-
-}
-
-
-
-/* ===========================
-   COUNTERS
-=========================== */
-
-
-.counter {
+.resource{
 
     display:flex;
 
     flex-direction:column;
 
+    justify-content:center;
+
+    align-items:center;
+
+    gap:8px;
+
+}
+
+
+.resource-value{
+
+    display:flex;
+
     align-items:center;
 
     justify-content:center;
 
-    gap:10px;
+    gap:15px;
+
+    font-size:clamp(45px,8vw,100px);
+
+    font-weight:300;
 
 }
 
 
+.resource-value button{
 
-.counter.large {
+    border:none;
 
-    font-size:clamp(45px,7vw,90px);
+    background:none;
+
+    color:rgba(255,255,255,.45);
+
+    font-size:.45em;
+
+    cursor:pointer;
+
+    transition:.15s;
 
 }
 
 
+.resource-value button:hover{
 
-.counter.small {
+    color:white;
 
-    font-size:clamp(24px,3vw,42px);
+    transform:scale(1.2);
 
 }
 
 
+.resource-icon{
 
-.counter-icon {
-
-    font-size:1em;
+    font-size:clamp(18px,2vw,30px);
 
     line-height:1;
 
@@ -193,129 +173,83 @@
 
 
 /* ===========================
-   VALUES
+   VIDA
 =========================== */
 
 
-.counter-value {
+.life{
 
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:clamp(8px,2vw,20px);
-
-}
-
-
-
-.counter-value span {
-
-    min-width:60px;
-
-    text-align:center;
-
-    font-weight:700;
-
-    transition:.15s;
+    border-bottom:1px solid rgba(255,255,255,.15);
 
 }
 
 
 
 /* ===========================
-   PLUS / MINUS BUTTONS
+   PODER E DEFESA
 =========================== */
 
 
-.counter-value button {
+.combat{
 
-    border:none;
+    display:grid;
 
-    background:none;
-
-    color:rgba(255,255,255,.45);
-
-    cursor:pointer;
-
-    font-size:1em;
-
-    font-weight:300;
-
-    width:40px;
-
-    height:40px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    transition:.15s;
-
-    user-select:none;
+    grid-template-columns:1fr 1fr;
 
 }
 
 
+.combat .resource-value{
 
-.counter-value button:hover {
-
-    color:white;
-
-    transform:scale(1.25);
-
-}
-
-
-
-.counter-value button:active {
-
-    transform:scale(.9);
+    font-size:clamp(28px,4vw,55px);
 
 }
 
 
 
 /* ===========================
-   GRID RESPONSIVE
+   CANALIZAÇÃO
 =========================== */
 
 
-.game.players-1 {
+.channeling{
+
+    border-top:1px solid rgba(255,255,255,.15);
+
+}
+
+
+
+/* ===========================
+   PLAYER GRID
+=========================== */
+
+
+.game.players-1{
 
     grid-template-columns:1fr;
 
-    grid-template-rows:1fr;
-
 }
 
 
 
-.game.players-2 {
+.game.players-2{
 
     grid-template-columns:repeat(2,1fr);
 
-    grid-template-rows:1fr;
-
 }
 
 
 
-.game.players-3 {
+.game.players-3{
 
     grid-template-columns:repeat(3,1fr);
 
-    grid-template-rows:1fr;
-
 }
 
 
 
-.game.players-4 {
+.game.players-4{
 
     grid-template-columns:repeat(2,1fr);
 
@@ -326,7 +260,7 @@
 
 
 .game.players-5,
-.game.players-6 {
+.game.players-6{
 
     grid-template-columns:repeat(3,1fr);
 
@@ -335,150 +269,44 @@
 }
 
 
+
 /* ===========================
-   ADAPTATIONS
+   MOBILE PORTRAIT
 =========================== */
 
 
-.game.players-4 .counter.large {
-
-    font-size:clamp(35px,5vw,70px);
-
-}
-
-
-
-.game.players-5 .counter.large,
-.game.players-6 .counter.large {
-
-    font-size:clamp(30px,4vw,55px);
-
-}
-
-
-
-.game.players-5 .counter.small,
-.game.players-6 .counter.small {
-
-    font-size:clamp(18px,2vw,28px);
-
-}
-
-
-
-.game.players-5 .player,
-.game.players-6 .player {
-
-    padding:12px;
-
-}
-
-
-
-.game.players-5 .counter-value button,
-.game.players-6 .counter-value button {
-
-    width:28px;
-
-    height:28px;
-
-}
-
-
-
-/* ===========================
-   MOBILE
-=========================== */
-
-
-@media(max-width:700px){
-
-
-    .toolbar {
-
-        top:10px;
-
-        right:10px;
-
-    }
-
-
-    .toolbar button {
-
-        width:40px;
-
-        height:40px;
-
-        font-size:20px;
-
-    }
-
-
-    .player-middle {
-
-        padding-inline:10px;
-
-    }
-
-
-}
-
-/* ===========================
-   CELULAR VERTICAL
-=========================== */
-
-@media (orientation: portrait) and (max-width:700px){
-
-
-    .game.players-1 {
-
-        grid-template-columns:1fr;
-
-        grid-template-rows:1fr;
-
-    }
+@media(max-width:700px)
+and (orientation:portrait){
 
 
     .game.players-2,
-    .game.players-3 {
+    .game.players-3{
 
         grid-template-columns:1fr;
 
     }
 
 
-    .game.players-2 {
+    .game.players-2{
 
         grid-template-rows:repeat(2,1fr);
 
     }
 
 
-    .game.players-3 {
+    .game.players-3{
 
         grid-template-rows:repeat(3,1fr);
 
     }
+
 
 
     .game.players-4,
     .game.players-5,
-    .game.players-6 {
+    .game.players-6{
 
         grid-template-columns:repeat(2,1fr);
-
-    }
-
-
-    .game.players-4 {
-
-        grid-template-rows:repeat(2,1fr);
-
-    }
-
-
-    .game.players-5,
-    .game.players-6 {
 
         grid-template-rows:repeat(3,1fr);
 
@@ -487,48 +315,14 @@
 
 }
 
+
 /* ===========================
-   CELULAR HORIZONTAL
+   ROTATION PREPARATION
 =========================== */
 
-@media (orientation: landscape) and (max-width:900px){
 
+.player.rotated{
 
-    .game.players-2 {
-
-        grid-template-columns:repeat(2,1fr);
-
-        grid-template-rows:1fr;
-
-    }
-
-
-    .game.players-3 {
-
-        grid-template-columns:repeat(3,1fr);
-
-        grid-template-rows:1fr;
-
-    }
-
-
-    .game.players-4 {
-
-        grid-template-columns:repeat(2,1fr);
-
-        grid-template-rows:repeat(2,1fr);
-
-    }
-
-
-    .game.players-5,
-    .game.players-6 {
-
-        grid-template-columns:repeat(3,1fr);
-
-        grid-template-rows:repeat(2,1fr);
-
-    }
-
+    transform:rotate(180deg);
 
 }

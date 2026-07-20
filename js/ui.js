@@ -1,27 +1,22 @@
-function createCounter(player, property, icon, large = false) {
-
-    const counter = document.createElement("div");
-
-    counter.className = large
-        ? "counter large"
-        : "counter small";
+function createResource(player, property, icon){
 
 
-    const iconElement = document.createElement("div");
+    const resource = document.createElement("div");
 
-    iconElement.className = "counter-icon";
 
-    iconElement.textContent = icon;
+    resource.className = "resource";
 
 
 
-    const valueRow = document.createElement("div");
+    const value = document.createElement("div");
 
-    valueRow.className = "counter-value";
+
+    value.className = "resource-value";
 
 
 
     const minus = document.createElement("button");
+
 
     minus.textContent = "−";
 
@@ -29,167 +24,185 @@ function createCounter(player, property, icon, large = false) {
 
     const number = document.createElement("span");
 
+
     number.textContent = player[property];
 
 
 
     const plus = document.createElement("button");
 
+
     plus.textContent = "+";
 
 
 
-    plus.addEventListener("click", () => {
+    minus.onclick = () => {
 
-        player.increment(property);
-
-        updateCounter(number, player[property]);
-
-    });
-
-
-
-    minus.addEventListener("click", () => {
 
         player.decrement(property);
 
-        updateCounter(number, player[property]);
 
-    });
-
+        number.textContent = player[property];
 
 
-    valueRow.appendChild(minus);
-
-    valueRow.appendChild(number);
-
-    valueRow.appendChild(plus);
+    };
 
 
 
-    counter.appendChild(iconElement);
-
-    counter.appendChild(valueRow);
+    plus.onclick = () => {
 
 
+        player.increment(property);
 
-    return counter;
+
+        number.textContent = player[property];
+
+
+    };
+
+
+
+    const iconElement = document.createElement("div");
+
+
+    iconElement.className="resource-icon";
+
+
+    iconElement.textContent=icon;
+
+
+
+    value.appendChild(minus);
+
+
+    value.appendChild(number);
+
+
+    value.appendChild(plus);
+
+
+
+    resource.appendChild(value);
+
+
+    resource.appendChild(iconElement);
+
+
+
+    return resource;
 
 }
 
 
 
-function updateCounter(element, value) {
-
-    element.textContent = value;
-
-    element.classList.remove("counter-pop");
 
 
-    void element.offsetWidth;
-
-
-    element.classList.add("counter-pop");
-
-
-}
+function createPlayerPanel(player){
 
 
 
-function createPlayerPanel(player) {
+    const panel=document.createElement("section");
 
 
-    const panel = document.createElement("section");
+    panel.className="player";
 
 
-    panel.className = "player";
-
-
-    panel.style.background = player.color;
+    panel.style.background=player.color;
 
 
 
     /*
-        Vida
+        VIDA
     */
 
-    const life = document.createElement("div");
 
-    life.className = "player-top";
+    const life=createResource(
 
+        player,
 
-    life.appendChild(
+        "life",
 
-        createCounter(
-            player,
-            "life",
-            "❤️",
-            true
-        )
+        "❤️"
 
     );
 
 
+    life.classList.add("life");
+
+
+
 
     /*
-        Poder e Defesa
+        PODER / DEFESA
     */
 
-    const combat = document.createElement("div");
 
-    combat.className = "player-middle";
+    const combat=document.createElement("div");
+
+
+    combat.className="combat";
+
 
 
     combat.appendChild(
 
-        createCounter(
+        createResource(
+
             player,
+
             "power",
+
             "⚔"
+
         )
 
     );
+
 
 
     combat.appendChild(
 
-        createCounter(
+        createResource(
+
             player,
+
             "defense",
+
             "🛡"
+
         )
 
     );
+
 
 
 
     /*
-        Canalização
+        CANALIZAÇÃO
     */
 
 
-    const channel = document.createElement("div");
+    const channel=createResource(
 
+        player,
 
-    channel.className = "player-bottom";
+        "channeling",
 
-
-    channel.appendChild(
-
-        createCounter(
-            player,
-            "channeling",
-            "✨",
-            true
-        )
+        "✨"
 
     );
+
+
+    channel.classList.add("channeling");
+
 
 
 
     panel.appendChild(life);
 
+
     panel.appendChild(combat);
+
 
     panel.appendChild(channel);
 
@@ -202,49 +215,47 @@ function createPlayerPanel(player) {
 
 
 
-function renderGame(players) {
 
 
-    const app = document.getElementById("app");
+function renderGame(players){
 
 
-    app.innerHTML = "";
+    const app=document.getElementById("app");
 
 
-
-    /*
-        Barra superior
-    */
-
-
-    const toolbar = document.createElement("div");
-
-
-    toolbar.className = "toolbar";
+    app.innerHTML="";
 
 
 
-    const add = document.createElement("button");
+    const toolbar=document.createElement("div");
 
 
-    add.textContent = "+";
-
-
-    add.onclick = addPlayer;
+    toolbar.className="toolbar";
 
 
 
-    const remove = document.createElement("button");
+    const add=document.createElement("button");
 
 
-    remove.textContent = "−";
+    add.textContent="+";
 
 
-    remove.onclick = removePlayer;
+    add.onclick=addPlayer;
+
+
+
+    const remove=document.createElement("button");
+
+
+    remove.textContent="−";
+
+
+    remove.onclick=removePlayer;
 
 
 
     toolbar.appendChild(add);
+
 
     toolbar.appendChild(remove);
 
@@ -254,19 +265,16 @@ function renderGame(players) {
 
 
 
-    /*
-        Área dos jogadores
-    */
+
+    const game=document.createElement("div");
 
 
-    const game = document.createElement("div");
-
-
-    game.className = `game players-${players.length}`;
+    game.className=`game players-${players.length}`;
 
 
 
-    players.forEach(player => {
+
+    players.forEach(player=>{
 
 
         game.appendChild(
