@@ -1,95 +1,534 @@
-.home-logo{
+/* ===========================
+   TOOLBAR
+=========================== */
 
-    width:220px;
+.toolbar {
 
-    max-width:80%;
+    position: fixed;
+
+    top: 20px;
+
+    right: 20px;
+
+    display: flex;
+
+    gap: 12px;
+
+    z-index: 999;
 
 }
 
-.home-title{
 
-    font-family:var(--title-font);
+.toolbar button {
 
-    font-size:2rem;
+    width: 48px;
 
-    text-align:center;
+    height: 48px;
 
-    letter-spacing:.15rem;
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(0,0,0,.35);
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:24px;
+
+    backdrop-filter:blur(12px);
+
+    transition:.2s;
 
 }
 
-.player-selector{
+
+.toolbar button:hover {
+
+    transform:scale(1.1);
+
+    background:rgba(0,0,0,.55);
+
+}
+
+
+
+/* ===========================
+   GAME GRID
+=========================== */
+
+
+.game {
+
+    width:100%;
+
+    height:100%;
+
+    display:grid;
+
+    gap:2px;
+
+    background:var(--divider);
+
+}
+
+
+
+/* ===========================
+   PLAYER PANEL
+=========================== */
+
+
+.player {
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-evenly;
+
+    align-items:center;
+
+    color:white;
+
+    padding:clamp(15px,3vw,40px);
+
+    overflow:hidden;
+
+}
+
+
+
+/* ===========================
+   PLAYER AREAS
+=========================== */
+
+
+.player-top {
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+
+
+.player-middle {
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding-inline:clamp(20px,8vw,120px);
+
+}
+
+
+
+.player-bottom {
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+
+
+/* ===========================
+   COUNTERS
+=========================== */
+
+
+.counter {
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+}
+
+
+
+.counter.large {
+
+    font-size:clamp(45px,7vw,90px);
+
+}
+
+
+
+.counter.small {
+
+    font-size:clamp(24px,3vw,42px);
+
+}
+
+
+
+.counter-icon {
+
+    font-size:1em;
+
+    line-height:1;
+
+}
+
+
+
+/* ===========================
+   VALUES
+=========================== */
+
+
+.counter-value {
 
     display:flex;
 
     align-items:center;
 
-    gap:30px;
+    justify-content:center;
+
+    gap:clamp(8px,2vw,20px);
 
 }
 
-.selector-button{
 
-    width:56px;
 
-    height:56px;
+.counter-value span {
 
-    border:none;
-
-    border-radius:50%;
-
-    background:var(--primary);
-
-    color:white;
-
-    font-size:1.5rem;
-
-    cursor:pointer;
-
-    transition:.2s;
-
-}
-
-.selector-button:hover{
-
-    background:var(--accent);
-
-}
-
-.selector-value{
-
-    font-size:2rem;
-
-    min-width:40px;
+    min-width:60px;
 
     text-align:center;
 
+    font-weight:700;
+
+    transition:.15s;
+
 }
 
-.start-button{
 
-    padding:16px 48px;
+
+/* ===========================
+   PLUS / MINUS BUTTONS
+=========================== */
+
+
+.counter-value button {
 
     border:none;
 
-    border-radius:999px;
+    background:none;
 
-    background:var(--primary);
-
-    color:white;
-
-    font-size:1rem;
-
-    font-weight:bold;
+    color:rgba(255,255,255,.45);
 
     cursor:pointer;
 
-    transition:.2s;
+    font-size:1em;
+
+    font-weight:300;
+
+    width:40px;
+
+    height:40px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:.15s;
+
+    user-select:none;
 
 }
 
-.start-button:hover{
 
-    background:var(--accent);
+
+.counter-value button:hover {
+
+    color:white;
+
+    transform:scale(1.25);
+
+}
+
+
+
+.counter-value button:active {
+
+    transform:scale(.9);
+
+}
+
+
+
+/* ===========================
+   GRID RESPONSIVE
+=========================== */
+
+
+.game.players-1 {
+
+    grid-template-columns:1fr;
+
+    grid-template-rows:1fr;
+
+}
+
+
+
+.game.players-2 {
+
+    grid-template-columns:repeat(2,1fr);
+
+    grid-template-rows:1fr;
+
+}
+
+
+
+.game.players-3 {
+
+    grid-template-columns:repeat(3,1fr);
+
+    grid-template-rows:1fr;
+
+}
+
+
+
+.game.players-4 {
+
+    grid-template-columns:repeat(2,1fr);
+
+    grid-template-rows:repeat(2,1fr);
+
+}
+
+
+
+.game.players-5,
+.game.players-6 {
+
+    grid-template-columns:repeat(3,1fr);
+
+    grid-template-rows:repeat(2,1fr);
+
+}
+
+
+/* ===========================
+   ADAPTATIONS
+=========================== */
+
+
+.game.players-4 .counter.large {
+
+    font-size:clamp(35px,5vw,70px);
+
+}
+
+
+
+.game.players-5 .counter.large,
+.game.players-6 .counter.large {
+
+    font-size:clamp(30px,4vw,55px);
+
+}
+
+
+
+.game.players-5 .counter.small,
+.game.players-6 .counter.small {
+
+    font-size:clamp(18px,2vw,28px);
+
+}
+
+
+
+.game.players-5 .player,
+.game.players-6 .player {
+
+    padding:12px;
+
+}
+
+
+
+.game.players-5 .counter-value button,
+.game.players-6 .counter-value button {
+
+    width:28px;
+
+    height:28px;
+
+}
+
+
+
+/* ===========================
+   MOBILE
+=========================== */
+
+
+@media(max-width:700px){
+
+
+    .toolbar {
+
+        top:10px;
+
+        right:10px;
+
+    }
+
+
+    .toolbar button {
+
+        width:40px;
+
+        height:40px;
+
+        font-size:20px;
+
+    }
+
+
+    .player-middle {
+
+        padding-inline:10px;
+
+    }
+
+
+}
+
+/* ===========================
+   CELULAR VERTICAL
+=========================== */
+
+@media (orientation: portrait) and (max-width:700px){
+
+
+    .game.players-1 {
+
+        grid-template-columns:1fr;
+
+        grid-template-rows:1fr;
+
+    }
+
+
+    .game.players-2,
+    .game.players-3 {
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .game.players-2 {
+
+        grid-template-rows:repeat(2,1fr);
+
+    }
+
+
+    .game.players-3 {
+
+        grid-template-rows:repeat(3,1fr);
+
+    }
+
+
+    .game.players-4,
+    .game.players-5,
+    .game.players-6 {
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+
+    .game.players-4 {
+
+        grid-template-rows:repeat(2,1fr);
+
+    }
+
+
+    .game.players-5,
+    .game.players-6 {
+
+        grid-template-rows:repeat(3,1fr);
+
+    }
+
+
+}
+
+/* ===========================
+   CELULAR HORIZONTAL
+=========================== */
+
+@media (orientation: landscape) and (max-width:900px){
+
+
+    .game.players-2 {
+
+        grid-template-columns:repeat(2,1fr);
+
+        grid-template-rows:1fr;
+
+    }
+
+
+    .game.players-3 {
+
+        grid-template-columns:repeat(3,1fr);
+
+        grid-template-rows:1fr;
+
+    }
+
+
+    .game.players-4 {
+
+        grid-template-columns:repeat(2,1fr);
+
+        grid-template-rows:repeat(2,1fr);
+
+    }
+
+
+    .game.players-5,
+    .game.players-6 {
+
+        grid-template-columns:repeat(3,1fr);
+
+        grid-template-rows:repeat(2,1fr);
+
+    }
+
 
 }

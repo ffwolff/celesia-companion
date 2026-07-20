@@ -1,15 +1,15 @@
-const COLORS = [
+const DEFAULT_COLORS = [
 
-    "#6A4CFF",
+    "linear-gradient(135deg,#25234C,#5483B6)",
 
-    "#E63946",
+    "linear-gradient(135deg,#C516C4,#EA659B)",
 
-    "#457B9D",
+    "linear-gradient(135deg,#5483B6,#70ABE0)",
 
-    "#2A9D8F",
+    "linear-gradient(135deg,#25234C,#C516C4)",
 
-    "#E9C46A",
+    "linear-gradient(135deg,#3D3D3D,#5483B6)",
 
-    "#F4A261"
+    "linear-gradient(135deg,#EA659B,#70ABE0)"
 
 ];

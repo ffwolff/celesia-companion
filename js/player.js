@@ -1,6 +1,10 @@
-class Player{
+class Player {
 
-    constructor(){
+    constructor(id, color) {
+
+        this.id = id;
+
+        this.color = color;
 
         this.life = 20;
 
@@ -8,9 +12,25 @@ class Player{
 
         this.defense = 0;
 
-        this.celesium = 0;
-
         this.channeling = 0;
+
+    }
+
+
+    increment(property) {
+
+        this[property]++;
+
+    }
+
+
+    decrement(property) {
+
+        if(this[property] > 0){
+
+            this[property]--;
+
+        }
 
     }
 

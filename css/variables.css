@@ -1,56 +1,26 @@
 :root{
 
-    /* ==========================
-       PALETA OFICIAL CELESIA
-    ========================== */
+    /* Paleta CELESIA */
 
-    --dark-blue: #25234C;
-    --blue: #5483B6;
-    --light-blue: #70ABE0;
+    --dark-blue:#25234C;
+    --blue:#5483B6;
+    --light-blue:#70ABE0;
 
-    --pink: #EA659B;
-    --purple-pink: #C516C4;
+    --purple:#C516C4;
+    --pink:#EA659B;
 
-    --gray: #3D3D3D;
+    --gray:#3D3D3D;
 
-    /* ==========================
-       CORES DA INTERFACE
-    ========================== */
+    /* Interface */
 
-    --background: var(--dark-blue);
+    --background:#101010;
 
-    --surface: #302D5C;
+    --divider:#202020;
 
-    --surface-hover: #3A366F;
+    --text:white;
 
-    --primary: var(--purple-pink);
+    --transition:.2s;
 
-    --secondary: var(--blue);
-
-    --accent: var(--light-blue);
-
-    --danger: var(--pink);
-
-    --text: #FFFFFF;
-
-    --text-secondary: rgba(255,255,255,.75);
-
-    --border: rgba(255,255,255,.08);
-
-    /* ==========================
-       MEDIDAS
-    ========================== */
-
-    --radius: 18px;
-
-    --transition: .25s;
-
-    /* ==========================
-       FONTES
-    ========================== */
-
-    --title-font: "Clements Morgle Serif", serif;
-
-    --text-font: "Creato Display", sans-serif;
+    --radius:18px;
 
 }

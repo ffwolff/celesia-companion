@@ -1,39 +1,91 @@
-let playerCount = 2;
+const players = [];
 
-const playerCountElement = document.getElementById("playerCount");
 
-document
-.getElementById("increasePlayers")
-.addEventListener("click", () => {
+function addPlayer(){
 
-    if(playerCount < 6){
 
-        playerCount++;
+    if(players.length >= 6){
 
-        playerCountElement.textContent = playerCount;
+        return;
 
     }
 
-});
 
-document
-.getElementById("decreasePlayers")
-.addEventListener("click", () => {
+    const player = new Player(
 
-    if(playerCount > 2){
+        players.length + 1,
 
-        playerCount--;
+        DEFAULT_COLORS[players.length]
 
-        playerCountElement.textContent = playerCount;
+    );
+
+
+    players.push(player);
+
+
+    render();
+
+
+}
+
+
+
+function removePlayer(){
+
+
+    if(players.length <= 1){
+
+        return;
 
     }
 
-});
 
-document
-.getElementById("startButton")
-.addEventListener("click", () => {
+    players.pop();
 
-    console.log(`Iniciar partida com ${playerCount} jogadores.`);
 
-});
+    render();
+
+
+}
+
+
+
+function render(){
+
+    renderGame(players);
+
+}
+
+
+
+function initialize(){
+
+
+    players.push(
+
+        new Player(
+            1,
+            DEFAULT_COLORS[0]
+        )
+
+    );
+
+
+    players.push(
+
+        new Player(
+            2,
+            DEFAULT_COLORS[1]
+        )
+
+    );
+
+
+    render();
+
+
+}
+
+
+
+initialize();
