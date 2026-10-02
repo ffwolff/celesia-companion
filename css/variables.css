@@ -1,26 +1,88 @@
+/* ==========================================================
+   CELESIA Companion
+   Variables
+========================================================== */
+
 :root{
 
-    /* Paleta CELESIA */
+    /* ======================================================
+       CORES PRINCIPAIS
+    ====================================================== */
 
-    --dark-blue:#25234C;
-    --blue:#5483B6;
-    --light-blue:#70ABE0;
+    --primary:#25234C;
+    --secondary:#5483B6;
+    --accent:#EA659B;
+    --highlight:#70ABE0;
 
-    --purple:#C516C4;
-    --pink:#EA659B;
+    --background:#171717;
+    --surface:#202020;
 
-    --gray:#3D3D3D;
+    --divider:rgba(255,255,255,.08);
 
-    /* Interface */
+    --text:#FFFFFF;
+    --text-secondary:rgba(255,255,255,.65);
 
-    --background:#101010;
+    --shadow:0 8px 30px rgba(0,0,0,.35);
 
-    --divider:#202020;
+    /* ======================================================
+       TOOLBAR
+    ====================================================== */
 
-    --text:white;
+    --toolbar-height:72px;
 
-    --transition:.2s;
+    --toolbar-background:rgba(20,20,20,.60);
 
-    --radius:18px;
+    --toolbar-button-size:50px;
+
+    --toolbar-button-background:rgba(255,255,255,.08);
+
+    --toolbar-button-hover:rgba(255,255,255,.18);
+
+    /* ======================================================
+       PLAYER
+    ====================================================== */
+
+    --player-border:1px solid rgba(255,255,255,.08);
+
+    --player-radius:18px;
+
+    /* ======================================================
+       COUNTERS
+    ====================================================== */
+
+    --counter-number:clamp(52px,8vw,110px);
+
+    --counter-icon:24px;
+
+    --counter-button:34px;
+
+    --counter-gap:14px;
+
+    /* ======================================================
+       INICIATIVA
+    ====================================================== */
+
+    --initiative-size:28px;
+
+    --initiative-color:#FFD54A;
+
+    /* ======================================================
+       BORDAS
+    ====================================================== */
+
+    --radius-small:10px;
+    --radius-medium:18px;
+    --radius-large:28px;
+
+    /* ======================================================
+       ANIMAÇÕES
+    ====================================================== */
+
+    --transition-fast:.15s ease;
+
+    --transition:.25s ease;
+
+    --transition-slow:.35s ease;
 
 }
+
